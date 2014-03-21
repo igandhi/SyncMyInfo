@@ -10,36 +10,44 @@
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 
 		<!-- Custom styles -->
-		<link href="css/cover.css" rel="stylesheet">
+		<link href="css/navbar-fixed-top.css" rel="stylesheet">
 	</head>
 
 	<body>
-		<div class="site-wrapper">
-			<div class="site-wrapper-inner">
-				<div class="cover-container">
-					<div class="masthead clearfix">
-						<div class="inner">
-							<h3 class="masthead-brand">Plan.It</h3>
-							<ul class="nav masthead-nav">
-								<li class="active"><a href="#">What is Plan.It?</a></li>
-								<li><a href="create.html">Create Syllabus</a></li>
-								<li><a href="#">Upload Syllabus</a></li>
-							</ul>
-						</div>
-					</div>
-
-					<div class="inner cover">
-						<h1 class="cover-heading">Plan It</h1>
-						<p class="lead">Sync syllabus with your favorite calendar.</p>
-					</div>
-
-					<div class="mastfoot">
-						<div class="inner">
-							<p>Created by Ikshat Gandhi, Prit Patel, Darryl Nable and Luke Xu</p>
-						</div>
-					</div>
+		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+				
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button> 
+					<a class="navbar-brand" href="./index.html">plan.it</a>
 				</div>
+				<div class="navbar-collapse collapse">
+		        	<ul class="nav navbar-nav navbar-right">
+		        		<li class="active"><a href = "index.html">What is plan.it?</a></li>
+		        		<li><a href = "./create.html">Create Syallabus</a></li>
+		        		<li><a href = "./upload.html">Upload Syllabus</a></li>
+		        	</ul>
+    			</div>
 			</div>
+		</div>
+
+		<div class="jumbotron container">
+			<h1>Plan It</h1>
+			<p>Easily create a syllabus and sync it with your favorite calendar!</p>
+			<p><a class="btn btn-primary btn-lg" role="button" href="./create.html">Create a syllabus now!</a></p>
+		</div>
+
+		<div id="footer">
+        	Created by 
+		    <a href = "http://www.linkedin.com/pub/luke-xu/47/603/7a">Luke Xu</a> &middot; 
+		    <a href = "http://twitter.com/patriotphan27">Prit Patel</a> &middot; 
+		    <a href = "http://www.linkedin.com/pub/darryl-nable/74/352/250">Darryl Nable</a> &middot; 
+		    <a href = "http://www.linkedin.com/pub/ike-gandhi/48/1a1/515">Ikshat Gandhi</a>
 		</div>
 	</body>
 </html>

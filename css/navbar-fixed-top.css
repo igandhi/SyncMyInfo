@@ -2,3 +2,31 @@ body {
   min-height: 2000px;
   padding-top: 70px;
 }
+
+#footer{
+	height: 130px;
+	text-align: center;
+
+	/* Internet Explorer 10 */
+	display:-ms-flexbox;
+	-ms-flex-pack:center;
+	-ms-flex-align:center;
+
+	/* Firefox */
+	display:-moz-box;
+	-moz-box-pack:center;
+	-moz-box-align:center;
+
+	/* Safari, Opera, and Chrome */
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+}
+
+#footer a{
+	text-decoration: none;
+}
+
+#footer a:hover{
+	color: #b7d0ce
+}
