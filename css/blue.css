@@ -1,0 +1,35 @@
+p, h1, h2, h3, h4, h5{
+	color: #4282D3;
+}
+
+#bannerTable a:hover{
+	color: #FFCB00;
+}
+
+#endDiv1{
+	background-color: #4282D3;
+}
+
+#endDiv2{
+	background-color: #05326D;
+}
+
+.navButton {
+	background-color:#4282D3;
+	color:#4E4E4E;
+}
+
+.navButton:hover {
+	background-color:#4E4E4E;
+	color:#4282D3;
+}
+
+.pageButton {
+	background-color:#4282D3;
+	color:#4E4E4E;
+}
+
+.pageButton:hover {
+	background-color:#4E4E4E;
+	color:#4282D3;
+}
