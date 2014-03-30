@@ -42,10 +42,10 @@ function App(){
             for (var j = 0; j < nodes.length; j++){
               layers.push(nodes[j].textContent + "\n");
             }
-			var pattern = /\d+\/\d+\/\d+/g;
+			var pattern = /(\d+\/\d+\/\d+)(\D+)/g;
 			console.log(layers.join("/n"));
 			var matches = layers.join("\n").match(pattern);
-            self.sendOutput(matches.join());
+            self.sendOutput(matches[0]);
             
             self.setMessage("Done!");
           }, 1000);
