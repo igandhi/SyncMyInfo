@@ -39,13 +39,16 @@ function App(){
           window.setTimeout(function(){
             var layers = [];
             var nodes = document.querySelectorAll(".textLayer > div");
+            var matchesarr = [];
+            var pattern1 = /(\d+\/\d+\/\d+)(\D+)/;
             for (var j = 0; j < nodes.length; j++){
               layers.push(nodes[j].textContent + "\n");
+              matchesarr.push(nodes[j].textContent.match(pattern1));
             }
-			var pattern = /(\d+\/\d+\/\d+)(\D+)/g;
-			console.log(layers.join("/n"));
-			var matches = layers.join("\n").match(pattern);
-            self.sendOutput(matches[0]);
+            console.log(matchesarr);
+	    var pattern = /(\d+\/\d+\/\d+)(\D+)/g;
+	    var matches = layers.join("\n").match(pattern);
+            self.sendOutput(matchesarr.join(","));
             
             self.setMessage("Done!");
           }, 1000);
