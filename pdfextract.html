@@ -10,12 +10,89 @@
 	<body style="font:13px Helvetica,sans-serif">
 	    <div id="message">Loading...</div>
 		<div id="viewer" style="display:none"></div>
-		    
+		<div id='content'>
+		  <h1>Events</h1>
+		  <ul id='events'></ul>
+		</div>
+
 
 		<script id="pdf-js" src="js/pdf.js"></script> <script>PDFJS.workerSrc = document.getElementById("pdf-js").getAttribute("src");</script>
 
-		<script src="js/app.js"></script>
+		<script type = "text/javascript" src="js/app.js"></script>
 		<script>var app = new App;</script>
+
+		
+		<a href='#' id='authorize-button' onclick='handleAuthClick();'>Login</a>
+	
+		<script>
+		
+			var clientId = '126797305180-d6nffs0cispknciobbnq8b78evegptr5.apps.googleusercontent.com';
+			
+			var apiKey = 'AIzaSyDAQEiS05fK5zKy1-AdxZCOKMrYqpBjAQk';
+			var scopes = 'https://www.googleapis.com/auth/calendar';
+			
+			function handleClientLoad() {
+			  gapi.client.setApiKey(apiKey);
+			  window.setTimeout(checkAuth,1);
+			  checkAuth();
+			}
+
+			function checkAuth() {
+			  gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true},
+				  handleAuthResult);
+			}
+
+			function handleAuthResult(authResult) {
+			  var authorizeButton = document.getElementById('authorize-button');
+			  if (authResult) {
+				authorizeButton.style.visibility = 'hidden';
+				//makeApiCall();
+			  } else {
+				authorizeButton.style.visibility = '';
+				authorizeButton.onclick = handleAuthClick;
+			   }
+			}
+
+			function handleAuthClick(event) {
+			  alert(matchesArray[2][1]);
+			  gapi.auth.authorize(
+				  {client_id: clientId, scope: scopes, immediate: false},
+				  handleAuthResult);
+			  return false;
+			}
+			
+//			function makeApiCall() {
+//			  for(int i=2; i<matchesArray.length; i++){
+//				  var resource = {
+//				  "start": {
+//					  "date": matchesArray[i][1]
+//				  },
+//				  "end": {
+//					"date": matchesArray[i][1]
+//				  },
+//				  "summary": matchesArray[i][2]
+//				  };
+//			
+//			  gapi.client.load('calendar', 'v3', function() {
+//				
+//				var request = gapi.client.calendar.events.insert({
+//				  'calendarId': 'primary',
+//				  'resource': resource
+//				});
+//			
+//					  
+//				request.execute(function(resp) {
+//					var li = document.createElement('li');
+//					li.appendChild(document.createTextNode(resp));
+//					document.getElementById('events').appendChild(li);
+//				  
+//				});
+//			  });
+//		  }
+//			}
+		</script>
+		<script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+		
 	</body>
 
 </html>
