@@ -2,7 +2,7 @@ This is a sample syllabus
 
 Due Date		|		Description
 
-04-10-2014				Homework
-04-13-2014				Quiz
-04-17-2014				Midterm
-04-25-2014				Final
+2014-04-10				Homework
+2014-04-11				Quiz
+2014-04-12				Midterm
+2014-04-13				Final
