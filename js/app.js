@@ -1,13 +1,15 @@
 function App(){
   var self = this;
   this.complete = 0;
-  
+      window.matchesArray = "aaaa";
+
   this.pdfToText = function(data){    
     var div = document.getElementById('viewer');
     
     // render the first pages
     var pdf = new PDFJS.PDFDoc(data);
     var total = pdf.numPages;
+    
     
     for (i = 1; i <= total; i++){
       var page = pdf.getPage(i);
@@ -40,15 +42,19 @@ function App(){
             var layers = [];
             var nodes = document.querySelectorAll(".textLayer > div");
             var matchesarr = [];
-            var pattern1 = /(\d+\/\d+\/\d+)(\D+)/;
+            var pattern1 = /(\d+\-\d+\-\d+)(\D+)/;
             for (var j = 0; j < nodes.length; j++){
               layers.push(nodes[j].textContent + "\n");
               matchesarr.push(nodes[j].textContent.match(pattern1));
             }
-	    var pattern = /(\d+\/\d+\/\d+)(\D+)/g;
-	    var matches = layers.join("\n").match(pattern);
+            console.log(matchesarr);
+		    var pattern = /(\d+\/\d+\/\d+)([^\W]\D+)/g;
+		    var matches = layers.join("\n").match(pattern);
             self.sendOutput(matchesarr.join(","));
-            
+            console.log(matchesarr.join(","));
+			console.log("dfnkjdfnk");
+			console.log(matchesArray.length);
+			matchesArray = matchesarr;
             self.setMessage("Done!");
           }, 1000);
         }
