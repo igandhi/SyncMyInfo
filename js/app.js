@@ -45,7 +45,6 @@ function App(){
               layers.push(nodes[j].textContent + "\n");
               matchesarr.push(nodes[j].textContent.match(pattern1));
             }
-            console.log(matchesarr);
 	    var pattern = /(\d+\/\d+\/\d+)(\D+)/g;
 	    var matches = layers.join("\n").match(pattern);
             self.sendOutput(matchesarr.join(","));
