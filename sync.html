@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<!--[if IE]>
+	 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<![endif]-->
+		<meta charset="utf-8">
+		<title>File Upload</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- Bootstrap CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- Generic page CSS -->
+		<link href="css/style.css" rel="stylesheet">
+		<!-- blueimp gallery styles -->
+		<link href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css" rel="stylesheet">
+		<!-- CSS to style the file inpit field as button -->
+		<link href="css/jquery.fileupload.css" rel="stylesheet">
+		<link href="css/jquery.fileupload-ui.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-fixed-top .navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="./index.html">plan.it</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="./index.html">What is plan.it?</a></li>
+						<li><a href="./create.html">Create Syllabus</a></li>
+						<li class="active"><a href="./upload.html">Upload Syllabus</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="container sync">
+			<div class="row">
+				<div class="col-md-6"
+					<blockquote>
+						<p>Uploaded PDF</p>
+					</blockquote>
+					<iframe id="input" src="pdf_with_dates.pdf"></iframe>
+				</div>
+				<div class="col-md-6">
+					<button type="button" class="btn btn-default btn-lg">Set Calendar ID</button>
+					<button type="button" class="btn btn-default btn-lg btn-block" id="authorize-button" onclick="handleAuthClick();">Sync with Google Calendar!</button>
+				</div>
+			</div>
+		</div>
+		<script id="pdf-js" src="js/pdf.js"></script> <script>PDFJS.workerSrc = document.getElementById("pdf-js").getAttribute("src");</script>
+
+		<script type = "text/javascript" src="js/app.js"></script>
+		<script>var app = new App;</script>
+	
+		<script>
+		
+			var clientId = '126797305180-d6nffs0cispknciobbnq8b78evegptr5.apps.googleusercontent.com';
+			
+			var apiKey = 'AIzaSyDAQEiS05fK5zKy1-AdxZCOKMrYqpBjAQk';
+			var scopes = 'https://www.googleapis.com/auth/calendar';
+			
+			
+
+			function handleClientLoad() {
+				
+			  gapi.client.setApiKey(apiKey);
+			  window.setTimeout(checkAuth,1);
+			  checkAuth();
+			}
+
+			function checkAuth() {
+			  gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true},
+				  handleAuthResult);
+			}
+
+			function handleAuthResult(authResult) {
+			  var authorizeButton = document.getElementById('authorize-button');
+			  if (authResult) {
+				// authorizeButton.style.visibility = 'hidden';
+				makeApiCall();
+			  } else {
+				authorizeButton.style.visibility = '';
+				authorizeButton.onclick = handleAuthClick;
+			   }
+			}
+
+			function handleAuthClick(event) {
+				alert(matchesArray[3][1]);
+			  gapi.auth.authorize(
+				  {client_id: clientId, scope: scopes, immediate: false},
+				  handleAuthResult);
+			  return false;
+			}
+			
+			function makeApiCall() {
+
+				var resource = {
+				  "summary": matchesArray[3][2],
+				  "location": "Somewhere",
+				  "start": {
+				    "date": matchesArray[3][1]
+				  },
+				  "end": {
+				    "date": matchesArray[3][1]
+				  }
+				};
+			
+			    gapi.client.load('calendar', 'v3', function() {
+				
+				  var request = gapi.client.calendar.events.insert({
+				    'calendarId': 'primary',
+				    'resource': resource
+				  });
+			
+					  
+				  request.execute(function(resp) {
+				    var li = document.createElement('li');
+			            li.appendChild(document.createTextNode(resp));
+				    document.getElementById('events').appendChild(li);
+				  
+				  });
+				});
+			
+			}
+		</script>
+		<script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+	</body>
