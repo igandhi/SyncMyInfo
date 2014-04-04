@@ -1,7 +1,7 @@
 function App(){
   var self = this;
   this.complete = 0;
-      window.matchesArray;
+      window.matchesArray = "aaa";
 
   this.pdfToText = function(data){    
     var div = document.getElementById('viewer');

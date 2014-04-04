@@ -38,23 +38,20 @@
 				</div>
 			</div>
 		</div>
-		<div class="container sync">
+		<div class="container">
 			<div class="row">
-				<div class="col-md-6"
-					<blockquote>
-						<p>Uploaded PDF</p>
-					</blockquote>
+				<div class="col-md-6">
+					<h1>Uploaded Syllabus</h1>
 					<iframe id="input" src="pdf_with_dates.pdf"></iframe>
 				</div>
 				<div class="col-md-6">
-					<button type="button" class="btn btn-default btn-lg">Set Calendar ID</button>
-					<button type="button" class="btn btn-default btn-lg btn-block" id="authorize-button" onclick="handleAuthClick();">Sync with Google Calendar!</button>
+					<button type="button" id="authorize-button" class="btn btn-default btn-lg btn-block" onclick="handleAuthClick();">Sync with Google Calendar!</button>
 				</div>
 			</div>
 		</div>
 		<script id="pdf-js" src="js/pdf.js"></script> <script>PDFJS.workerSrc = document.getElementById("pdf-js").getAttribute("src");</script>
 
-		<script type = "text/javascript" src="js/app.js"></script>
+		<script type = "text/javascript" src="app.js"></script>
 		<script>var app = new App;</script>
 	
 		<script>
@@ -90,7 +87,7 @@
 			}
 
 			function handleAuthClick(event) {
-				alert(matchesArray[3][1]);
+				alert(matchesArray);
 			  gapi.auth.authorize(
 				  {client_id: clientId, scope: scopes, immediate: false},
 				  handleAuthResult);
@@ -100,13 +97,13 @@
 			function makeApiCall() {
 
 				var resource = {
-				  "summary": matchesArray[3][2],
+				  "summary": matchesArray[5][2],
 				  "location": "Somewhere",
 				  "start": {
-				    "date": matchesArray[3][1]
+				    "date": matchesArray[5][1]
 				  },
 				  "end": {
-				    "date": matchesArray[3][1]
+				    "date": matchesArray[5][1]
 				  }
 				};
 			
@@ -128,5 +125,28 @@
 			
 			}
 		</script>
+		
+		<script>
+		  var input = document.getElementById("input");
+		  
+		  window.addEventListener("message", function(event){
+			
+			switch (event.data){
+			  case "ready":
+				var xhr = new XMLHttpRequest;
+				xhr.open('GET', input.getAttribute("src"), true);
+				xhr.responseType = "arraybuffer";
+				xhr.onload = function(event) {
+				  processor.contentWindow.postMessage(this.response, "*");
+				  };
+				xhr.send();
+			  break;
+			  
+			  default:
+			  break;
+			}
+		  }, true);
+		</script>
 		<script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
 	</body>
+</html>

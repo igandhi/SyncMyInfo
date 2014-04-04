@@ -11,14 +11,8 @@ h5{
 	font-size: 40px;
 }
 
-h1{
-	font-size: 12px;
-	text-align: center;
-}
-
 body {
   padding-top: 60px;
-  height: 100%;
 }
 
 #banner{
@@ -238,11 +232,5 @@ body {
 .colorSwitch:hover{
 	border: 4px solid #E9C2A6;
 }
-
-.sync {
-	height:100%;
-
-}
-
 
 
