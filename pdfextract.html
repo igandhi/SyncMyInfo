@@ -18,7 +18,7 @@
 
 		<script id="pdf-js" src="js/pdf.js"></script> <script>PDFJS.workerSrc = document.getElementById("pdf-js").getAttribute("src");</script>
 
-		<script type = "text/javascript" src="js/app.js"></script>
+		<script type = "text/javascript" src="app.js"></script>
 		<script>var app = new App;</script>
 
 		
@@ -57,7 +57,7 @@
 			}
 
 			function handleAuthClick(event) {
-				alert(matchesArray[3][1]);
+				alert(matchesArray[5][1]);
 			  gapi.auth.authorize(
 				  {client_id: clientId, scope: scopes, immediate: false},
 				  handleAuthResult);
@@ -67,13 +67,13 @@
 			function makeApiCall() {
 
 				var resource = {
-				  "summary": matchesArray[3][2],
+				  "summary": matchesArray[5][2],
 				  "location": "Somewhere",
 				  "start": {
-				    "date": matchesArray[3][1]
+				    "date": matchesArray[5][1]
 				  },
 				  "end": {
-				    "date": matchesArray[3][1]
+				    "date": matchesArray[5][1]
 				  }
 				};
 			
