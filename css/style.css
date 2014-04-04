@@ -12,7 +12,7 @@ h5{
 }
 
 body {
-  padding-top: 60px;
+  margin-top: 40px;
 }
 
 #banner{
@@ -233,4 +233,20 @@ body {
 	border: 4px solid #E9C2A6;
 }
 
+#processor {
+	width: 100%;
+}
+
+#input {
+	width: 100%;
+	height: 100%;
+}
+
+iframe {
+	border: none;
+}
+
+li {
+	margin-left: 15px;
+}
 

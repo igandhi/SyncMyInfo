@@ -1,7 +1,7 @@
 function App(){
   var self = this;
   this.complete = 0;
-      window.matchesArray = "aaa";
+      window.matchesArray="aaa";
 
   this.pdfToText = function(data){    
     var div = document.getElementById('viewer');
@@ -27,13 +27,16 @@ function App(){
       context.fillStyle = 'rgb(255, 255, 255)';
       context.fillRect(0, 0, canvas.width, canvas.height);
       context.restore();
-            
+      
+      self.setMessage("Rendering...");
+      
       var textLayer = document.createElement('div');
       textLayer.className = 'textLayer';
       document.body.appendChild(textLayer);
       
       page.startRendering(context, function(){
         if (++self.complete == total){
+          self.setMessage("Finished rendering. Extracting text...");
           
           window.setTimeout(function(){
             var layers = [];
@@ -45,13 +48,13 @@ function App(){
               matchesarr.push(nodes[j].textContent.match(pattern1));
             }
             console.log(matchesarr);
-		    var pattern = /(\d+\/\d+\/\d+)([^\W]\D+)/g;
-		    var matches = layers.join("\n").match(pattern);
+            var pattern = /(\d+\/\d+\/\d+)([^\W]\D+)/g;
+            var matches = layers.join("\n").match(pattern);
             self.sendOutput(matchesarr.join(","));
             console.log(matchesarr.join(","));
-			console.log("dfn2222");
-			console.log(matchesArray.length);
-			matchesArray = matchesarr;
+            console.log("dfn2222");
+            console.log(matchesArray.length);
+            matchesArray = matchesarr;
             self.setMessage("Done!");
           }, 1000);
         }
@@ -62,6 +65,7 @@ function App(){
   this.receiveInput = function(event){
     if (event.source != parent) return;
     if (!event.data.byteLength) return alert("The PDF data needs to be an ArrayBuffer");
+    self.setMessage("Received data");
     self.pdfToText(event.data);
   }
   
@@ -70,6 +74,11 @@ function App(){
     recipient.postMessage(text, "*");
   };
   
+  this.setMessage = function(text){
+    document.getElementById("message").textContent = text;
+  }
+
   window.addEventListener("message", self.receiveInput, true);
+  self.setMessage("Ready");
   self.sendOutput("ready"); 
 }

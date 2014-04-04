@@ -5,15 +5,13 @@
   		<meta charset="utf-8">
     	<title>PDFToText</title>
 	  	<style>.textLayer { display: none; }</style>
+	  	<!-- Bootstrap CSS -->
+    	<link href="css/bootstrap.min.css" rel="stylesheet">
 	</head>
 
 	<body style="font:13px Helvetica,sans-serif">
-	    <div id="message">Loading...</div>
+	    <h1 id="message">Loading...</h1>
 		<div id="viewer" style="display:none"></div>
-		<div id='content'>
-		  <h1>Events</h1>
-		  <ul id='events'></ul>
-		</div>
 
 
 		<script id="pdf-js" src="js/pdf.js"></script> <script>PDFJS.workerSrc = document.getElementById("pdf-js").getAttribute("src");</script>
@@ -22,7 +20,7 @@
 		<script>var app = new App;</script>
 
 		
-		<a href='#' id='authorize-button' onclick='handleAuthClick();'>Sync with calendar</a>
+        <button type="button" id="authorize-button" class="btn btn-default btn-lg btn-block" onclick="handleAuthClick();">Sync with Google Calendar!</button>
 	
 		<script>
 		
@@ -129,4 +127,3 @@
 	</body>
 
 </html>
-
