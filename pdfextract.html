@@ -74,23 +74,23 @@
 				    "date": matchesArray[5][1]
 				  }
 				};
-			
+
 			    gapi.client.load('calendar', 'v3', function() {
-				
+
 				  var request = gapi.client.calendar.events.insert({
 				    'calendarId': 'primary',
 				    'resource': resource
 				  });
-			
-					  
+
+
 				  request.execute(function(resp) {
 				    var li = document.createElement('li');
 			            li.appendChild(document.createTextNode(resp));
 				    document.getElementById('events').appendChild(li);
-				  
+
 				  });
 				});
-			
+
 			}
 			 //          });
 			  // for(int i=2; i<matchesArray.length; i++){
