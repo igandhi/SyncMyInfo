@@ -5,23 +5,25 @@
   		<meta charset="utf-8">
     	<title>PDFToText</title>
 	  	<style>.textLayer { display: none; }</style>
-	  	<!-- Bootstrap CSS -->
-    	<link href="css/bootstrap.min.css" rel="stylesheet">
 	</head>
 
 	<body style="font:13px Helvetica,sans-serif">
-	    <h1 id="message">Loading...</h1>
+	    <div id="message">Loading...</div>
 		<div id="viewer" style="display:none"></div>
+		<div id='content'>
+		  <h1>Events</h1>
+		  <ul id='events'></ul>
+		</div>
 
 
 		<script id="pdf-js" src="js/pdf.js"></script> <script>PDFJS.workerSrc = document.getElementById("pdf-js").getAttribute("src");</script>
 
-		<script type = "text/javascript" src="app.js"></script>
+		<script type = "text/javascript" src="./app.js"></script>
 		<script>var app = new App;</script>
 
 		
-        <button type="button" id="authorize-button" class="btn btn-default btn-lg btn-block" onclick="handleAuthClick();">Sync with Google Calendar!</button>
-	
+		<a href='#' id='authorize-button' onclick='handleAuthClick();'>Sync with calendar</a>
+		<script src="js/date.js"></script>
 		<script>
 		
 			var clientId = '126797305180-d6nffs0cispknciobbnq8b78evegptr5.apps.googleusercontent.com';
@@ -29,6 +31,10 @@
 			var apiKey = 'AIzaSyDAQEiS05fK5zKy1-AdxZCOKMrYqpBjAQk';
 			var scopes = 'https://www.googleapis.com/auth/calendar';
 			
+			var i;
+			var resource;
+			var request;
+			var li;	
 			
 
 			function handleClientLoad() {
@@ -55,71 +61,97 @@
 			}
 
 			function handleAuthClick(event) {
-				alert(matchesArray[5][1]);
+				alert(matchesArray[3][1]);
+//				alert(matchesArray.length);
 			  gapi.auth.authorize(
 				  {client_id: clientId, scope: scopes, immediate: false},
 				  handleAuthResult);
 			  return false;
+
+
 			}
 			
 			function makeApiCall() {
 
-				var resource = {
-				  "summary": matchesArray[5][2],
-				  "location": "Somewhere",
-				  "start": {
-				    "date": matchesArray[5][1]
-				  },
-				  "end": {
-				    "date": matchesArray[5][1]
-				  }
-				};
+				var mydate;
+				var formattedDate;
+				var description;
+				i = 2;	
+				for(i; i<matchesArray.length; i++){
+					// mydate = new Date(matchesArray[i][1]);
+		   // 				formattedDate = mydate.toString("yyyy-MM-dd");
+		   // 				description = matchesArray[i][2];
+		   // 				console.log(formattedDate);
+					if(matchesArray[i][1]!=undefined) {
+						if(matchesArray[i][2]=="") {
+							matchesArray[i][1] = matchesArray[i][1]+"/"+ new Date().getFullYear();
+						}
+						mydate = new Date(matchesArray[i][1]);
+		   				formattedDate = mydate.toString("yyyy-MM-dd");
+		   				description = matchesArray[i][3];
+						console.log(formattedDate);
+					} 
+					if(matchesArray[i][4]!=undefined) {
+						if(matchesArray[i][5]=="") {
+							matchesArray[i][4] = matchesArray[i][4]+"-"+ new Date().getFullYear();
+						}
+						mydate = new Date(matchesArray[i][4]);
+		   				formattedDate = mydate.toString("yyyy-MM-dd");
+		   				description = matchesArray[i][6];
+		   				console.log(formattedDate);
+					} 
+					if(matchesArray[i][7]!=undefined) {
+						var apr13 = matchesArray[i][7].toString();
+						mydate = new Date(apr13);
+					    console.log(mydate);
+						formattedDate = mydate.toString("yyyy-MM-dd");
+		   				description = matchesArray[i][9];
+		   				console.log(formattedDate);
+					}
+					resource = {
+					  "summary": description,
+					  "start": {
+					    "date": formattedDate
+					  },
+					  "end": {
+					    "date": formattedDate
+					  }
+					};
 
-			    gapi.client.load('calendar', 'v3', function() {
+					insertEvent(resource);				
 
-				  var request = gapi.client.calendar.events.insert({
+				}//end for loop
+			
+			}//end function makeApiCall
+
+
+			function insertEvent(resource) {
+			    
+				gapi.client.load('calendar', 'v3', function() {
+				
+				   request = gapi.client.calendar.events.insert({
 				    'calendarId': 'primary',
 				    'resource': resource
-				  });
+				   });
 
+				executeEvent(request);
 
-				  request.execute(function(resp) {
-				    var li = document.createElement('li');
+				});//end gapi.client.load
+
+			}//end function insertEvent
+
+			function executeEvent(request) {	  
+				 
+				    request.execute(function(resp) {
+				    li = document.createElement('li');
 			            li.appendChild(document.createTextNode(resp));
 				    document.getElementById('events').appendChild(li);
-
-				  });
-				});
-
-			}
-			 //          });
-			  // for(int i=2; i<matchesArray.length; i++){
-				 //  var resource = {
-				 //  "start": {
-					//   "date": matchesArray[i][1]
-				 //  },
-				 //  "end": {
-					// "date": matchesArray[i][1]
-				 //  },
-				 //  "summary": matchesArray[i][2]
-				 //  };
-			
-			  //         gapi.client.load('calendar', 'v3', function() {
-				
-				 //  var request = gapi.client.calendar.events.insert({
-				 //    'calendarId': 'primary',
-				 //    'resource': resource
-				 //  });
-			
-					  
-				 //  request.execute(function(resp) {
-				 //    var li = document.createElement('li');
-			  //           li.appendChild(document.createTextNode(resp));
-				 //    document.getElementById('events').appendChild(li);
 				  
-				 //  });
-			  //         });
-		   //       }
+				  });	
+
+
+			}//end function executeEvent
+		
 			
 		</script>
 		<script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
@@ -127,3 +159,4 @@
 	</body>
 
 </html>
+

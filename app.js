@@ -42,14 +42,13 @@ function App(){
             var layers = [];
             var nodes = document.querySelectorAll(".textLayer > div");
             var matchesarr = [];
-            var pattern1 = /(\d+\-\d+\-\d+)(\D+)/;
+            var pattern1 = /(\d+\/\d+\/*(\d*))(\D+)|(\d+\-\d+\-*(\d*))(\D+)|((jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\D+\d+\D+\d*(\D+))/i;
             for (var j = 0; j < nodes.length; j++){
               layers.push(nodes[j].textContent + "\n");
               matchesarr.push(nodes[j].textContent.match(pattern1));
             }
             console.log(matchesarr);
-            var pattern = /(\d+\/\d+\/\d+)([^\W]\D+)/g;
-            var matches = layers.join("\n").match(pattern);
+            console.log(matchesarr[2][3]);
             self.sendOutput(matchesarr.join(","));
             console.log(matchesarr.join(","));
             console.log("dfn2222");
