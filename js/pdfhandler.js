@@ -7,17 +7,20 @@ function downPDF(){
     var NextSection;
 
     //PRINTS HEADER
-        NextSection = printHeaderTable(doc);
-
+    NextSection = printHeaderTable(doc);
     //END PRINTS HEADER
 
     //PRINTS DESC
-
+    NextSection = printDescTable(NextSection, doc)
     //END PRINTS DESC
 
     //PRINTS SCHEDULE
     printScheduleTable(NextSection, doc);
     //END PRINTS SCHEDULE
+
+
+
+
     //END PRINTS HEADER
 
     //PRINTS DESC
@@ -77,16 +80,54 @@ function printHeaderTable(doc){
 }
 
 function printDescTable(StartPos, doc){
-    
+    var table = document.getElementById('descTable');
+    var descriptionElements = document.getElementsByClassName('descInput');
+    var rowCount = table.rows.length; 
+    var tableSize = rowCount/2;
+
+    var SpaceBtwnTable = 10;
+    var LineLen = 10;
+    var LinePos = StartPos + SpaceBtwnTable * rowCount/2 + 7.5;
+
+
+    for(var i = 0; i < tableSize; i++){
+        if (i%2 == 0){
+            doc.text(10, 10 +  20*Math.floor(i/2) + StartPos, descriptionElements[i].value); 
+        }
+        else{
+            doc.text(10, 20 + 20*Math.floor(i/2) + StartPos, descriptionElements[i].value); 
+        }       
+    } 
+
+    //62
+    //doc.text(10, 70, "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwws".length); 
+
+
+    doc.line(LineLen, LinePos, 210 - LineLen, LinePos);
+    return LinePos;
 }
 
 function printScheduleTable(StartPos, doc){
     scheduleElements = document.getElementsByClassName('scheduleInput');
+    var table = document.getElementById('scheduleTable');
+    var rowCount = table.rows.length; 
+    var colCount = table.rows[0].cells.length;
+    var tableSize = (rowCount * colCount) - 2;
 
+    doc.text(10, 10 + StartPos, "Date");
+    doc.text(45, 10 + StartPos, "Description");
 
-    for(var i = 0; i < 6; i++){
+    for(var i = 0; i < tableSize; i++){
+        if (i%2 == 0){
+            doc.text(10, 20 + StartPos + Math.floor(i/2) * 7.5, scheduleElements[i].value);
+        }
+        else{
+            doc.text(45, 20 + StartPos + Math.floor(i/2) * 7.5, scheduleElements[i].value);
+        }
+
         //doc.text(40, 7*Math.floor(i/2) + StartPos, scheduleElements[i].value); 
     } 
+
 
     doc.output('dataurl'); 
 }  

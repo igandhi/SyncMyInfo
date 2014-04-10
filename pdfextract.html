@@ -6,11 +6,16 @@
     	<title>PDFToText</title>
     	<!-- Bootstrap CSS -->
     	<link href="css/bootstrap.min.css" rel="stylesheet">
+    	<style type="text/css">
+    		#viewer {
+    			display: none;
+    		}
+    	</style>
 	</head>
 
 	<body style="font:13px Helvetica,sans-serif">
-	    <div id="message">Loading...</div>
-		<div id="viewer" style="display:none"></div>
+	    <h1 id="message">Loading...</h1>
+		<div id="viewer"></div>
 
 
 		<script id="pdf-js" src="js/pdf.js"></script> <script>PDFJS.workerSrc = document.getElementById("pdf-js").getAttribute("src");</script>
@@ -58,7 +63,6 @@
 			}
 
 			function handleAuthClick(event) {
-				alert(matchesArray[3][1]);
 //				alert(matchesArray.length);
 			  gapi.auth.authorize(
 				  {client_id: clientId, scope: scopes, immediate: false},
@@ -79,6 +83,7 @@
 		   // 				formattedDate = mydate.toString("yyyy-MM-dd");
 		   // 				description = matchesArray[i][2];
 		   // 				console.log(formattedDate);
+		   		if(matchesArray[i]!=undefined) {
 					if(matchesArray[i][1]!=undefined) {
 						if(matchesArray[i][2]=="") {
 							matchesArray[i][1] = matchesArray[i][1]+"/"+ new Date().getFullYear();
@@ -98,13 +103,20 @@
 		   				console.log(formattedDate);
 					} 
 					if(matchesArray[i][7]!=undefined) {
-						var apr13 = matchesArray[i][7].toString();
-						mydate = new Date(apr13);
-					    console.log(mydate);
+						if(matchesArray[i][9]=="") {
+							matchesArray[i][7] = matchesArray[i][7]+","+ new Date().getFullYear();
+						}
+						console.log(matchesArray[i][7]);
+						
+						var thedate = matchesArray[i][7];
+						var noSpace = thedate.replace(/\s/g, '');
+						console.log(noSpace);
+						mydate = new Date(noSpace);
 						formattedDate = mydate.toString("yyyy-MM-dd");
-		   				description = matchesArray[i][9];
+		   				description = matchesArray[i][10];
 		   				console.log(formattedDate);
 					}
+				}
 					resource = {
 					  "summary": description,
 					  "start": {

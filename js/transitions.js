@@ -45,26 +45,11 @@ function reverse(){
 function wordUpdate() {
 	var helper = document.getElementById('helper');
 
-	if (section == 1){
-		helper.innerHTML = "You can't go back anymore. Press the right arrow the go to the next step.";
-	}
-	else if(section == 2){
-		helper.innerHTML = "Here's where you can add in the all the descriptions for your syllabus";
+	if(section == 2){
+		helper.innerHTML = "Course description and other information";
 	}
 	else{
-		helper.innerHTML = "Once you've completed this form, click the Create PDF button to download your PDF!";
+		helper.innerHTML = "Click the \"Create PDF\" button to download your PDF!";
 	}
 
-}
-
-function styleBlue(){
-	document.getElementById('stylesheet').href = 'css/blue.css';
-}
-
-function styleRed(){
-	document.getElementById('stylesheet').href = 'css/red.css';
-}
-
-function styleGreen(){
-	document.getElementById('stylesheet').href = 'css/green.css';
 }

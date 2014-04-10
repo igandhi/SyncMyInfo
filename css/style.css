@@ -3,17 +3,12 @@
 	padding: 0;
 }
 
-p, h1, h2, h3, h4, h5{
-	font-family: 'Varela Round', sans-serif;
+.background-style {
+	margin-top: 40px;
+	background-image: url("../img/crossword.png");
+ 	background-repeat: repeat;
 }
 
-h5{
-	font-size: 40px;
-}
-
-body {
-  margin-top: 40px;
-}
 
 #banner{
 	background-color: #FAFAF7;
@@ -45,27 +40,8 @@ body {
 
 #navigationButtons{
 	padding-left: 10px; 
-	padding-top: 10px;
+	padding-top: 60px;
 }
-
-.navButton {
-	text-indent:0;
-	display:inline-block;
-	font-family:Comic Sans MS;
-	font-size:15px;
-	font-weight:bold;
-	font-style:normal;
-	height:40px;
-	line-height:40px;
-	width:40px;
-	text-decoration:none;
-	text-align:center;
-}
-
-.navButton:active{
-	position:relative;
-	top:1px;
-}	
 
 .pageButton {
 	text-indent:0;
@@ -249,4 +225,13 @@ iframe {
 li {
 	margin-left: 15px;
 }
+
+.mastfoot {
+  text-align: center;
+}
+
+.inner {
+  padding: 30px;
+}
+
 

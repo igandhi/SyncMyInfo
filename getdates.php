@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body class="background-style">
   <?php
     $allowedExts = array("pdf");
     $temp = explode(".", $_FILES["file"]["name"]);
