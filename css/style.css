@@ -234,4 +234,8 @@ li {
   padding: 30px;
 }
 
+#reverseButton {
+	visibility: hidden;
+}
+
 

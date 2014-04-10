@@ -5,6 +5,9 @@ function forward(){
 	var headerDiv = document.getElementById('headerWrapper');
 	var descDiv = document.getElementById('descWrapper');
 	var schedDiv = document.getElementById('schedWrapper');
+	var prevBtn = document.getElementById('reverseButton');
+	var nextBtn = document.getElementById('forwardButton');
+	prevBtn.style.visibility='visible';
 
 
 	if (section == 1){
@@ -15,10 +18,16 @@ function forward(){
 	else if(section == 2){
 		descDiv.style.display = 'none';
 		schedDiv.style.display = 'block';
+		$(document).ready(function() {
+			$("#forwardButton").html("Download PDF");
+
+		});
 		section++;
 	}
-	else{
-
+	else if(section == 3){
+		$().ready(function(){
+			$("#forwardButton").click(downPDF());
+		});
 	}
 }
 
@@ -26,6 +35,7 @@ function reverse(){
 	var headerDiv = document.getElementById('headerWrapper');
 	var descDiv = document.getElementById('descWrapper');
 	var schedDiv = document.getElementById('schedWrapper');
+	var prevBtn = document.getElementById('reverseButton');
 
 	if (section == 3){
 		schedDiv.style.display = 'none';
@@ -35,6 +45,7 @@ function reverse(){
 	else if (section == 2){
 		descDiv.style.display = 'none';
 		headerDiv.style.display = 'block';
+		prevBtn.style.visibility='hidden';
 		section--;
 	}
 	else{
