@@ -238,4 +238,8 @@ li {
 	visibility: hidden;
 }
 
+#formats {
+	display: none;
+}
+
 

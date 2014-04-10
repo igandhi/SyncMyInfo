@@ -68,6 +68,7 @@
 		                <li>Only <strong>PDF</strong> file type is supported.</li>
 		                <li>Upload syllabus one at a time</li>
 		                <li>You will be able to preview the upload on next page before syncing</li>
+		                <li>We support multiple date formats! <button id="formatToggle" class="label label-info">Click here</button> to see the accepted formats.<br><br><pre id="formats">April 23, 2014<br>April 23<br>04/23/2014<br>04-23-2014<br>04/23<br>04-23</pre></li>
 		            </ul>
 		        </div>
 			</div>
@@ -77,5 +78,6 @@
 			var filename = $('input[type=file]').val().split('\\').pop();
 			console.log(filename);
 		</script>
+		<script type="text/javascript" src="js/effects.js"></script>
 	</body> 
 </html>
