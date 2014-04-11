@@ -10,7 +10,55 @@
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 
 		<!-- Custom styles -->
-		<link href="css/navbar-fixed-top.css" rel="stylesheet">
+		<!-- <link href="css/navbar-fixed-top.css" rel="stylesheet"> -->
+		<style>
+			body {
+			  font-weight: 300;
+			}
+
+			p {
+			  margin-top: 2em;
+			  margin-bottom: 2em;
+			  line-height: 1.6em;
+			  font-size: 20px;
+			}
+
+			#createbtn {
+				opacity: 0.5;
+			}
+
+			.splash {
+			  height: 35em;
+			  padding-top: 9em;
+			  margin-bottom: 2em;
+			  background-image: url("http://i.imgur.com/Sbh58eU.jpg");
+			  background-size: cover;
+			  color: #fff;
+			  text-align: center;
+			}
+
+			.navbar-default {
+			  position: absolute;
+			  background-color: transparent;
+			}
+
+			.navbar-default .navbar-brand {
+			  font-size: 20px;
+			}
+
+			.navbar-default .navbar-brand,
+			.navbar-default .navbar-nav > li > a {
+			  font-weight: 400;
+			}
+
+			.navbar-default .navbar-nav > li > a:hover {
+			  background-color: transparent;
+			}
+
+			.btn {
+			  font-size: 20px;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -28,26 +76,30 @@
 				</div>
 				<div class="navbar-collapse collapse">
 		        	<ul class="nav navbar-nav navbar-right">
-		        		<li class="active"><a href = "index.html">What is plan.it?</a></li>
+		        		<li><a href = "index.html">What is plan.it?</a></li>
 		        		<li><a href = "./create.html">Create Syallabus</a></li>
 		        		<li><a href = "./upload.html">Upload Syllabus</a></li>
 		        	</ul>
     			</div>
 			</div>
 		</div>
-
-		<div class="jumbotron container">
-			<h1>Plan It</h1>
-			<p>Easily create a syllabus and sync it with your favorite calendar!</p>
-			<p><a class="btn btn-primary btn-lg" role="button" href="./create.html">Create a syllabus now!</a></p>
+		<div class="splash">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<h1>Plan It</h1>
+					<p>Easily create a syllabus and sync it with your favorite calendar!</p>
+					<p><a class="btn btn-default btn-lg btn-block" id="createbtn" role="button" href="./create.html">Create a syllabus now!</a></p>
+				</div>
+			</div>
 		</div>
 
-		<div id="footer">
+		<div class="footer">
         	Created by 
+		    <a href = "http://www.linkedin.com/pub/ike-gandhi/48/1a1/515" target="_blank">Ikshat Gandhi</a> &middot;
 		    <a href = "http://www.linkedin.com/pub/luke-xu/47/603/7a" target="_blank">Luke Xu</a> &middot; 
 		    <a href = "http://twitter.com/patriotphan27" target="_blank">Prit Patel</a> &middot; 
-		    <a href = "http://www.linkedin.com/pub/darryl-nable/74/352/250" target="_blank">Darryl Nable</a> &middot; 
-		    <a href = "http://www.linkedin.com/pub/ike-gandhi/48/1a1/515" target="_blank">Ikshat Gandhi</a>
+		    <a href = "http://www.linkedin.com/pub/darryl-nable/74/352/250" target="_blank">Darryl Nable</a>
 		</div>
 	</body>
 </html>

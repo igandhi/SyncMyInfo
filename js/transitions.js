@@ -5,6 +5,9 @@ function forward(){
 	var headerDiv = document.getElementById('headerWrapper');
 	var descDiv = document.getElementById('descWrapper');
 	var schedDiv = document.getElementById('schedWrapper');
+	var prevBtn = document.getElementById('reverseButton');
+	var nextBtn = document.getElementById('forwardButton');
+	prevBtn.style.visibility='visible';
 
 
 	if (section == 1){
@@ -15,10 +18,16 @@ function forward(){
 	else if(section == 2){
 		descDiv.style.display = 'none';
 		schedDiv.style.display = 'block';
+		$(document).ready(function() {
+			$("#forwardButton").html("Download PDF");
+
+		});
 		section++;
 	}
-	else{
-
+	else if(section == 3){
+		$().ready(function(){
+			$("#forwardButton").click(downPDF());
+		});
 	}
 }
 
@@ -26,15 +35,20 @@ function reverse(){
 	var headerDiv = document.getElementById('headerWrapper');
 	var descDiv = document.getElementById('descWrapper');
 	var schedDiv = document.getElementById('schedWrapper');
+	var prevBtn = document.getElementById('reverseButton');
 
 	if (section == 3){
 		schedDiv.style.display = 'none';
 		descDiv.style.display = 'block';
+		$().ready(function() {
+			$('#forwardButton').html("Next");
+		});
 		section--;
 	}
 	else if (section == 2){
 		descDiv.style.display = 'none';
 		headerDiv.style.display = 'block';
+		prevBtn.style.visibility='hidden';
 		section--;
 	}
 	else{
@@ -44,27 +58,13 @@ function reverse(){
 
 function wordUpdate() {
 	var helper = document.getElementById('helper');
-
-	if (section == 1){
-		helper.innerHTML = "You can't go back anymore. Press the right arrow the go to the next step.";
+	if(section == 1) {
+		helper.innerHTML = "Let's get started by filling out some basic information";
+	} else if(section == 2){
+		helper.innerHTML = "Course description and other information";
 	}
-	else if(section == 2){
-		helper.innerHTML = "Here's where you can add in the all the descriptions for your syllabus";
-	}
-	else{
-		helper.innerHTML = "Once you've completed this form, click the Create PDF button to download your PDF!";
+	else if(section == 3){
+		helper.innerHTML = "Click the \"Download PDF\" button to download your PDF!";
 	}
 
-}
-
-function styleBlue(){
-	document.getElementById('stylesheet').href = 'css/blue.css';
-}
-
-function styleRed(){
-	document.getElementById('stylesheet').href = 'css/red.css';
-}
-
-function styleGreen(){
-	document.getElementById('stylesheet').href = 'css/green.css';
 }

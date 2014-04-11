@@ -2,192 +2,6 @@
 <HTML>
 <HEAD>
     <TITLE>PlanIt</TITLE>
-	<meta charset-"utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	
-	<!-- Bootstrap CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-
-	<!-- Custom stylesheet for navbar -->
-
-
-	
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Gafata' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" type="text/css" id = "stylesheet" href="css/green.css">
-    <link rel="stylesheet" type="text/css" id = "stylesheet" href="css/navbar-fixed-top.css">
-
-</HEAD>
-<BODY>
-    <!--***********************NAVBAR***********************-->
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="sr-only">Toggle navigation</span>
-		
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button> 
-			<a class="navbar-brand" href="./index.html">plan.it</a>
-		</div>
-		<div class="navbar-collapse collapse">
-        	<ul class="nav navbar-nav navbar-right">
-        		<li><a href = "index.html">What is plan.it?</a></li>
-        		<li class="active"><a href = "#">Create Syallabus</a></li>
-                <li><a href = "./upload.html">Upload Syllabus</a></li>
-
-        	</ul>
-    	</div>
-	</div>
-</div>
-    <!--***********************END NAVBAR************************-->
-
-
-<div class="container"><!--START WRAP-->
-
-    <!--***********************START HELPER***********************-->
-    <!---NAVIGATION BUTTONS-->
-        <div id="navigationButtons">
-            <a class="navButton" id = "reverseButton" onclick="reverse(); wordUpdate()">&larr;</a>
-            <a class="navButton" id = "forwardButton" onclick="forward(); wordUpdate()">&rarr;</a>
-        </div>
-        <!---END NAVIGATION BUTTONS-->
-    <p id = "helper">Let's get started by filling out some basic information. Click the right arrow on the top left once you're done.</p>
-    <!--***********************END HELPER*************************-->
-
-
-
-    <div id = "insidewrap"><!--START INSIDE WRAP-->
-
-    <div id = "headerWrapper"><!--START HEADER WRAPPER-->
-    <table id="headerTable">
-
-    <tr>
-        <td width="130px"><p class = "headerLabel">Course Name:</p></td>
-        <td><input class = "headerInput" placeholder="Capstone 123:123:01"></input></td>
-
-        <td width="130px"></td>
-    </tr>
-
-    <tr> 
-        <td><p class = "headerLabel">Semester:</p></td>
-        <td><input class = "headerInput" type="text" placeholder="Spring 2014"></td>
-    </tr>
-
-    <tr>
-        <td><p class = "headerLabel">Location:</p></td>
-        <td><input class = "headerInput" type="text" placeholder="EN-124"></td>
-
-        <td><p class = "headerLabel">Instructor:</p></td>
-        <td><input class = "headerInput" type="text" placeholder="Luke Xu"></td>
-    </tr>
-
-    <tr>
-        <td><p class = "headerLabel">Time:</p></td>
-        <td><input class = "headerInput" type="text" placeholder="Mon/Wed 1:20-4:10 PM"></td>
-
-        <td><p class = "headerLabel">E-mail:</p></td>
-        <td><input class = "headerInput" type="text" placeholder="lukexu@ece.rutgers.edu"></td>
-    </tr>
-
-    <tr>
-        <td><p class = "headerLabel">Office:</p></td>
-        <td><input class = "headerInput" type="text" placeholder="CoRE 519"></td>
-
-        <td><p class = "headerLabel">Office Hours:</p></td>
-        <td><input class = "headerInput" type="text" placeholder="Tues/Thurs 3:30-4:30 & by appt."></td>
-    </tr>
-
-    <tr>
-        <td><p class = "headerLabel">Website:</p></td>
-        <td><input class = "headerInput" placeholder="sakai.rutgers.edu"></input></td>
-    </tr>
-    </table>
-    </div><!--END HEADER WRAPPER-->
-
-
-    <br><br>
-
-	<div id = "descWrapper"><!--START DESC WRAPPER-->
-    <table>
-        <tr>
-            <td><label>Name of Description?? Idk</label></td>
-        </tr>
-
-        <tr>
-            <td><input class = "descInput"></input></td>
-        </tr>
-        <tr>
-            <td><label>Description</label></td>
-        </tr>
-
-        <tr>
-            <td><input class = "descInput"></input></td>
-        </tr>
-    </table>
-
-    <br><br><INPUT id = "next" type="button" value="One More" onclick=""/>
-    <br><br><INPUT id = "previous" type="button" value="Delete" onclick=""/>
-    <br><br><INPUT id = "previous" type="button" value="Next" onclick=""/>
-    <br><br><INPUT id = "previous" type="button" value="Previous" onclick=""/>
-    </div><!--END DESC WRAPPER-->
-
-
-
-    <div id = "schedWrapper"><!--START SCHED WRAPPER-->
-
-    <a class="navButton" onclick="addRow('scheduleTable')">+</a>
-    <a class="navButton" onclick="deleteRow('scheduleTable')">-</a>
-
-    <TABLE id="scheduleTable">
-
-        <TR>
-            <TD><p>Date</p></TD>
-            <TD><p>Topics</p></TD>
-            <TD><p>Whatever</p></TD>
-        </TR>
-
-        <TR>
-            <td><input class = "scheduleInput"></input></td>
-            <td><input class = "scheduleInput" size="60"></input></TD>
-            <td><input class = "scheduleInput"></input></TD>
-        </TR>
-    </TABLE>
-
-    <a class="pageButton" onclick="downPDF()">Create PDF</a>
-    <a class="pageButton" onclick="headerError()"> Preview PDF</a>
-
-
-    </div><!--END SCHED WRAPPER-->
-
-    <h1>*Use the arrow buttons above to navigate through the pages.<br>
-**Do <b>NOT</b> hit refresh or back without saving your data first.</h1><br><br>
-
-</div><!--END OF INSIDEWRAP-->
-</div><!--END OF WRAP-->
-
-	
-<div id = "endDiv1">
-        Created by <br> 
-    <a href = "http://www.linkedin.com/pub/luke-xu/47/603/7a" target="_blank">Luke Xu</a> &middot; 
-    <a href = "http://twitter.com/patriotphan27" target="_blank">Prit Patel</a> &middot; 
-    <a href = "http://www.linkedin.com/pub/darryl-nable/74/352/250" target="_blank">Darryl Nable</a> &middot; 
-    <a href = "http://www.linkedin.com/pub/ike-gandhi/48/1a1/515" target="_blank">Ikshat Gandhi</a>
-</div>
-
-
-<div id = "endDiv2">
-    <a class = "colorSwitch" onclick = "styleRed()" style = "background-color:#E65439"></a>
-    <a class = "colorSwitch" onclick = "styleGreen()" style = "background-color:#4ABA84"></a> 
-    <a class = "colorSwitch" onclick = "styleBlue()" style = "background-color:#4282D3"></a> 
-</div>
-
     <script type="text/javascript" src="js/dyntables.js"></script>    
     <script type="text/javascript" src="js/transitions.js"></script>
     <script type="text/javascript" src="js/pdfhandler.js"></script>
@@ -201,6 +15,175 @@
     <script type="text/javascript" src="plugins/pdf/jspdf.plugin.from_html.js"></script>
     <script type="text/javascript" src="plugins/pdf/jspdf.plugin.javascript.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-</BODY>
+</HEAD>
+<body class="background-style">
+    <!--***********************START BANNER***********************-->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button> 
+                    <a class="navbar-brand" href="./index.html">plan.it</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href = "index.html">What is plan.it?</a></li>
+                        <li class="active"><a href = "./create.html">Create Syallabus</a></li>
+                        <li><a href = "./upload.html">Upload Syllabus</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <!--***********************END BANNER*************************-->
+
+
+<div class="container"><!--START WRAP-->
+
+    <!--***********************START HELPER***********************-->
+
+    <h3 id="helper">Let's get started by filling out some basic information</h3>
+    <!--***********************END HELPER*************************-->
+
+
+
+    <div id = "insidewrap"><!--START INSIDE WRAP-->
+
+    <div id = "headerWrapper"><!--START HEADER WRAPPER-->
+    <table id="headerTable">
+
+    <tr>
+        <td width="130px"><h5 class = "headerLabel">Course Name:</h5></td>
+        <td><input class = "headerInput" placeholder="Capstone 123:123:01"></input></td>
+
+        <td width="130px"></td>
+    </tr>
+
+    <tr> 
+        <td><h5 class = "headerLabel">Semester:</h5></td>
+        <td><input class = "headerInput" type="text" placeholder="Spring 2014"></td>
+    </tr>
+
+    <tr>
+        <td><h5 class = "headerLabel">Location:</h5></td>
+        <td><input class = "headerInput" type="text" placeholder="EN-124"></td>
+
+        <td><h5 class = "headerLabel">Instructor:</h5></td>
+        <td><input class = "headerInput" type="text" placeholder="Luke Xu"></td>
+    </tr>
+
+    <tr>
+        <td><h5 class = "headerLabel">Time:</h5></td>
+        <td><input class = "headerInput" type="text" placeholder="Mon/Wed 1:20-4:10 PM"></td>
+
+        <td><h5 class = "headerLabel">E-mail:</h5></td>
+        <td><input class = "headerInput" type="text" placeholder="lukexu@ece.rutgers.edu"></td>
+    </tr>
+
+    <tr>
+        <td><h5 class = "headerLabel">Office:</h5></td>
+        <td><input class = "headerInput" type="text" placeholder="CoRE 519"></td>
+
+        <td><h5 class = "headerLabel">Office Hours:</h5></td>
+        <td><input class = "headerInput" type="text" placeholder="Tues/Thurs 3:30-4:30 & by appt."></td>
+    </tr>
+
+    <tr>
+        <td><h5 class = "headerLabel">Website:</h5></td>
+        <td><input class = "headerInput" placeholder="sakai.rutgers.edu"></input></td>
+    </tr>
+    </table>
+    </div><!--END HEADER WRAPPER-->
+
+
+
+    <div id = "descWrapper"><!--START DESC WRAPPER-->
+
+        <span class="btn btn-success" onclick="addDescRow('descTable')">
+            <i class="glyphicon glyphicon-plus"></i>
+            </span>
+
+        <span class="btn btn-danger" onclick="deleteDescRow('descTable')">
+        <i class="glyphicon glyphicon-minus"></i>
+        </span>
+
+
+    <table id = "descTable">
+        <tr>
+            <td><label><h5>Title</h5></label></td>
+        </tr>
+
+        <tr>
+            <td><input class = "descInput"></input></td>
+        </tr>
+        <tr>
+            <td><label><h5>Description</h5></label></td>
+        </tr>
+
+        <tr>
+            <td><input class = "descInput" size = "150"></input></td>
+        </tr>
+    </table>
+    </div><!--END DESC WRAPPER-->
+
+
+
+    <div id = "schedWrapper"><!--START SCHED WRAPPER-->
+
+    <span class="btn btn-success" onclick="addRow('scheduleTable')">
+            <i class="glyphicon glyphicon-plus"></i>
+            </span>
+
+        <span class="btn btn-danger" onclick="deleteRow('scheduleTable')">
+        <i class="glyphicon glyphicon-minus"></i>
+        </span>
+
+    <TABLE id="scheduleTable">
+
+        <TR>
+            <TD><p>Date</p></TD>
+            <TD><p>Description</p></TD>
+        </TR>
+
+        <TR>
+            <td><input class = "scheduleInput" size="23"></input></td>
+            <td><input class = "scheduleInput" size="125"></input></TD>
+        </TR>
+    </TABLE>
+
+
+    </div><!--END SCHED WRAPPER-->
+        <!---NAVIGATION BUTTONS-->
+        <div id="navigationButtons" class="row">
+            <div class="col-md-6">
+                <button class="btn btn-warning btn-lg btn-block" id = "reverseButton" onclick="reverse(); wordUpdate()">Previous</button>
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-success btn-lg btn-block" id = "forwardButton" onclick="forward(); wordUpdate()">Next</button>
+            </div>
+        </div>  
+        <!---END NAVIGATION BUTTONS-->
+    <br><br>
+    <h4>Do <b>not</b> refresh the page or your data may be lost.</h4><br><br>
+
+</div><!--END OF INSIDEWRAP-->
+</div><!--END OF WRAP-->
+
+<div class="footer">
+        Created by 
+        <a href = "http://www.linkedin.com/pub/ike-gandhi/48/1a1/515" target="_blank">Ikshat Gandhi</a> &middot;
+        <a href = "http://www.linkedin.com/pub/luke-xu/47/603/7a" target="_blank">Luke Xu</a> &middot; 
+        <a href = "http://twitter.com/patriotphan27" target="_blank">Prit Patel</a> &middot; 
+        <a href = "http://www.linkedin.com/pub/darryl-nable/74/352/250" target="_blank">Darryl Nable</a> 
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/effects.js"></script>
+</body>
 </HTML>

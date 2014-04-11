@@ -18,18 +18,12 @@
 
 <body class="background-style">
   <?php
-    // $allowedExts = array("gif", "jpeg", "jpg", "png");
-    // $temp = explode(".", $_FILES["file"]["name"]);
-    // $extension = end($temp);
-    // if ((($_FILES["file"]["type"] == "image/gif")
-    // || ($_FILES["file"]["type"] == "image/jpeg")
-    // || ($_FILES["file"]["type"] == "image/jpg")
-    // || ($_FILES["file"]["type"] == "image/pjpeg")
-    // || ($_FILES["file"]["type"] == "image/x-png")
-    // || ($_FILES["file"]["type"] == "image/png"))
-    // && ($_FILES["file"]["size"] < 20000)
-    // && in_array($extension, $allowedExts))
-    //   {
+    $allowedExts = array("pdf");
+    $temp = explode(".", $_FILES["file"]["name"]);
+    $extension = end($temp);
+    if ((($_FILES["file"]["type"] == "application/pdf"))
+    && in_array($extension, $allowedExts))
+      {
       if ($_FILES["file"]["error"] > 0)
         {
         echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
@@ -40,24 +34,18 @@
         echo "Type: " . $_FILES["file"]["type"] . "<br>";
         echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
         echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
-
-        if (file_exists("upload/" . $_FILES["file"]["name"]))
-          {
-          echo $_FILES["file"]["name"] . " already exists. ";
-          }
-        else
-          {
-          move_uploaded_file($_FILES["file"]["tmp_name"],
-          "upload/" . $_FILES["file"]["name"]);
-          echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
-          }
+        
+        move_uploaded_file($_FILES["file"]["tmp_name"],
+        "upload/" . $_FILES["file"]["name"]);
+        echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
+          
         }
       }
     else
       {
       echo "Invalid file";
       }
-?>
+  ?>
 	<div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -88,7 +76,7 @@
     <div class="row">
       <div class="col-md-6">
         <h1>Uploaded Syllabus</h1>
-        <iframe id="input" src="pdf_with_dates.pdf"></iframe>
+        <iframe id="input" src=<?php echo "upload/".$_FILES["file"]["name"] ?>></iframe>
       </div>
       <div class="col-md-6">
             <iframe id="processor" src="pdfextract.html"></iframe>
