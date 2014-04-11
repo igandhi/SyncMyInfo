@@ -44,7 +44,7 @@
 				<p>Upload a syllabus in PDF format and we will sync all the dates and events with your calendar!</p> 
 			</blockquote>
 			<br>
-			<form id="fileupload" action="./getdates.php" method="post" enctype="multipart/form-data">
+			<form id="fileupload" action="./getdates.php" method="post" enctype="multipart/form-data" onsubmit="return validation(this)">
 				<div class="row fileupload-buttonbar">
 					<div class="col-lg-7">
 						<span class="btn btn-success fileinput-button">
@@ -57,6 +57,9 @@
 							<span>Start upload</span>
 						</button>
 					</div>
+				</div>
+				<div id = "valid_msg" class="alert alert-danger" style="visibility: hidden;">
+			  		Only PDF format is accepted!
 				</div>
 			</form>
 			<div class="panel panel-default">
@@ -86,5 +89,38 @@
 			console.log(filename);
 		</script>
 		<script type="text/javascript" src="js/effects.js"></script>
+		<script type="text/javascript">
+		function validation(thisform) {
+			with(thisform) {
+				if(validateFileExtension(file, "valid_msg", "Only PDF files allowed!", 
+					new Array("pdf")) == false) {
+					return false;
+				}
+			}
+		}
+
+		function validateFileExtension(component, msg_id, msg, extns) {
+			var flag = 0;
+			with(component) {
+				var ext = value.substring(value.lastIndexOf(".")+1);
+				for (var i =0; i<extns.length; i++) {
+					if(ext==extns[i]) {
+						flag = 0;
+						break;
+					} else {
+						flag = 1;
+					}
+				}
+				if(flag!=0) {
+					document.getElementById(msg_id).style.visibility='visible';
+					component.value="";
+					return false;
+				}
+				else {
+					return true;
+				}
+			}
+		}
+		</script>
 	</body> 
 </html>
