@@ -27,16 +27,16 @@ function App(){
       context.fillStyle = 'rgb(255, 255, 255)';
       context.fillRect(0, 0, canvas.width, canvas.height);
       context.restore();
-      
       self.setMessage("Rendering...");
       
       var textLayer = document.createElement('div');
       textLayer.className = 'textLayer';
       document.body.appendChild(textLayer);
+      textLayer.style.display='none';
       
       page.startRendering(context, function(){
         if (++self.complete == total){
-          self.setMessage("Finished rendering. Extracting text...");
+          self.setMessage("Extracting text...");
           
           window.setTimeout(function(){
             var layers = [];
