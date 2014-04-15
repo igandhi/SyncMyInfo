@@ -21,12 +21,14 @@ function forward(){
 		$(document).ready(function() {
 			$("#forwardButton").html("Download PDF");
 
+
 		});
 		section++;
 	}
 	else if(section == 3){
 		$().ready(function(){
-			$("#forwardButton").click(downPDF());
+			// $("#forwardButton").attr("target", "_blank");
+			$("#forwardButton").attr("target", "_blank").click(downPDF());
 		});
 	}
 }

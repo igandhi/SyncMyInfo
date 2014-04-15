@@ -245,3 +245,7 @@ li {
 .footer {
 	text-align: center;
 }
+
+tr {
+	margin-right: 50px;
+}

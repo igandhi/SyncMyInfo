@@ -47,11 +47,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="./index.html">plan.it</a>
+          <a class="navbar-brand" href="./index.html">SyncMy.Info</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="./index.html">What is plan.it?</a></li>
+            <li><a href="./index.html">What is SyncMy.Info?</a></li>
             <li><a href="./create.html">Create Syllabus</a></li>
             <li class="active"><a href="./upload.html">Upload Syllabus</a></li>
           </ul>
