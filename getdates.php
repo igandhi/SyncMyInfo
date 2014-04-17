@@ -12,7 +12,7 @@
     <!-- Bootstrap CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Generic page CSS -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style/style.css" rel="stylesheet">
 
 </head>
 

@@ -1,118 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE-edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>SyncMy.Info</title>
-
-		<!-- Bootstrap core CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-
-		<!-- Custom styles -->
-		<!-- <link href="css/navbar-fixed-top.css" rel="stylesheet"> -->
-		<style>
-			body {
-			  font-weight: 300;
-			}
-
-			p {
-			  margin-top: 2em;
-			  margin-bottom: 2em;
-			  line-height: 1.6em;
-			  font-size: 20px;
-			}
-
-			#createbtn {
-				opacity: 0.5;
-			}
-
-			.splash {
-			  height: 45em;
-			  padding-top: 9em;
-			  margin-bottom: 2em;
-			  background-image: url("img/books.jpg");
-			  background-size: cover;
-			  color: #fff;
-			  text-align: center;
-			}
-
-			.navbar-default {
-			  position: absolute;
-			  background-color: transparent;
-			}
-
-			.navbar-default .navbar-brand {
-			  font-size: 30px;
-			}
-
-			.navbar-default .navbar-brand,
-			.navbar-default .navbar-nav > li > a {
-			  font-weight: 400;
-			}
-
-			.navbar-default .navbar-nav > li > a:hover {
-			  background-color: transparent;
-			}
-
-			.btn {
-			  font-size: 20px;
-			}
-		</style>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic" rel="stylesheet" type="text/css" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.poptrox.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/init.js"></script>
+		
+		<link rel="stylesheet" href="css/skel-noscript.css" />
+		<link rel="stylesheet" href="css/index_style.css" />
+		<!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
-
 	<body>
-		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-				
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button> 
-					<a class="navbar-brand" href="./index.html">SyncMy.Info</a>
+		<section id="header">
+			<header>
+				<h1>SyncMy.Info</h1>
+				<p>Easily create a syllabus and sync it with your Google calendar!</p>		
+			</header>
+			<footer>
+				<a href="#banner" class="button style2 scrolly scrolly-centered">Learn More!</a>
+			</footer>
+		</section>
+
+		<section id="banner">
+			<header>
+				<h2>What is SyncMy.Info?</h2>
+
+			</header>
+			<p>SyncMy.Info is designed to help students organize their semesters. <br />Students can now sync deadlines for all their classes with just a few clicks. As an added functionality, <br />we have streamlined the syllabus-creation process for professors. They can <br />follow our intuitive system to quickly generate a syllabus.</p>
+			<footer>
+				<div align="center">
+						<a style="margin-right:15px;" href="./create.html" class="button style2 scrolly scrolly-centered">Create a syllabus</a>
+						<a style="margin-left:15px;"href="./upload.html" class="button style2 scrolly scrolly-centered">Sync a syllabus</a>
 				</div>
-				<div class="navbar-collapse collapse">
-		        	<ul class="nav navbar-nav navbar-right">
-		        		<li id="scrollTo"><a>What is SyncMy.Info?</a></li>
-		        		<li><a href = "./create.html">Create Syallabus</a></li>
-		        		<li><a href = "./upload.html">Upload Syllabus</a></li>
-		        	</ul>
-    			</div>
-			</div>
-		</div>
-		<div class="splash">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<h1>SyncMy.Info</h1>
-						<p>Easily create a syllabus and sync it with your Google calendar!</p>
-						<p><a class="btn btn-default btn-lg btn-block" id="createbtn" role="button" href="./create.html">Create a syllabus now!</a></p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<blockquote class="container" id="summary">
-			<h3>SyncMy.Info is a user-friendly organizational tool that not only helps students keep calendars up-to-date but also allows professors to create a syllabus for their class in a matter of clicks.
-
-			Professors can simply use the “create syllabus” button to fill in pre-defined course information.  Then continue on by adding in course description, grading breakdown as well as any miscellaneous information.  And finally add specific lecture dates with description of course topics or exam/quiz information.  In a matter of these 3 easy steps the pdf is generated and available for download.
-
-			Student’s can use the “upload syllabus” button to sync the events of a given syllabus to their google calendar. The student needs to upload their pdf version of the syllabus to the website and simply click “sync with google calendar”.  The syllabus events will then be available on their PC/Mac as well as their mobile device via the use of google calendar. </h3>
-		</blockquote>
-
-
-		<div align="center" class="footer">
+			</footer>
+		</section>
+		<section id="footer">
+			<div class="icons">
         	Created by 
 		    <a href = "http://www.twitter.com/ikegandhi" target="_blank">Ikshat Gandhi</a> &middot;
 	        <a href = "http://www.twitter.com/Ostralyan" target="_blank">Luke Xu</a> &middot; 
 	        <a href = "http://twitter.com/patriotphan27" target="_blank">Prit Patel</a> &middot; 
 	        <a href = "http://www.twitter.com/ReaIJackieChan" target="_blank">Darryl Nable</a> 
 		</div>
-		<script type="text/javascript" src="js/jquery.min.js"></script>
-		<script type="text/javascript" src="js/jquery.scrollTo-min.js"></script>
-		<script type="text/javascript" src="js/effects.js"></script>
+		</section>
+
+	
 	</body>
 </html>
 								
